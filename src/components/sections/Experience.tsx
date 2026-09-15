@@ -7,13 +7,13 @@ const experiences = [
   {
     title: "AI Engineer Intern",
     company: "Nexaya",
-    date: "Jan 2024 – Present", // TODO: confirm dates
+    date: "February 2026 – July 2026",
     icon: <Briefcase className="w-5 h-5 text-primary" />,
     description: [
-      "Building an AI-powered Technology Assessment Platform.",
-      "Developing LLM-based agents to analyze repositories and architectures.",
-      "Designing pipelines for code analysis and AI-driven evaluation.",
-      "Working on scalable architecture and real-world AI systems."
+      "Architected O322 — an AI-powered Technology Due Diligence Platform.",
+      "Developed LLM-based autonomous agents to analyze source repositories and system architectures.",
+      "Engineered automated code analysis and AI-driven tech evaluation pipelines.",
+      "Built scalable production-ready AI workflows for enterprise due diligence."
     ]
   },
   {

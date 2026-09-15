@@ -8,69 +8,58 @@ import { cn } from "@/lib/utils";
 
 const projects = [
   {
-    title: "AI Data Analyst Agent",
-    category: "LLM / Agents",
-    problem: "Traditional data analysis requires manual coding and querying, slowing down business insights.",
-    solution: "Developed an autonomous AI agent capable of translating natural language into SQL/Python to analyze datasets directly.",
-    impact: "Automated standard reporting processes, reducing time-to-insight for non-technical users.",
-    tech: ["LangChain", "OpenAI", "Python", "Pandas"],
-    github: "", // TODO: replace with real URL
-    live: ""    // TODO: replace with real URL
+    title: "O322 — AI-Powered Technology Due Diligence Platform",
+    category: "LLM / Enterprise AI",
+    problem: "Assessing enterprise software infrastructure during due diligence requires manual code audits and slow architectural reviews.",
+    solution: "Architected autonomous LLM agents to analyze repositories, detect technical debt, evaluate system design, and auto-generate executive tech assessment reports.",
+    impact: "Automated core technical due diligence pipelines, reducing repository evaluation time while ensuring comprehensive architectural insights.",
+    tech: ["LLM Agents", "Python", "LangChain", "OpenAI", "FastAPI"],
+    github: ""
+  },
+  {
+    title: "Weather Forecaster — Real-Time ML Streaming Platform",
+    category: "Data Engineering & ML",
+    problem: "Static daily weather forecasting models cannot adapt to sudden micro-climate shifts in high-frequency sensor streams.",
+    solution: "Engineered an end-to-end real-time data streaming pipeline featuring Avro schema validation, Parquet storage, feature engineering, and ML model serving.",
+    impact: "Enabled high-frequency micro-climate prediction with sub-2s processing latency using Random Forest, XGBoost, and LSTM models.",
+    tech: ["Apache Kafka", "Python", "Avro", "Parquet", "PyArrow", "XGBoost", "LSTM"],
+    github: "https://github.com/Oumaima-Toufali/Weather-Forecasting-with-Real-Time-Streaming"
   },
   {
     title: "LabLens – Medical Data Intelligence Platform",
     category: "Healthcare ML",
-    problem: "Medical lab results are often fragmented and difficult to cross-reference rapidly for diagnostics.",
-    solution: "Built a centralized intelligence platform leveraging ML to aggregate, predict, and visualize patient lab trends.",
-    impact: "Enhanced diagnostic speed and provided predictive alerts for abnormal biomarker trajectories.",
-    tech: ["FastAPI", "React", "Scikit-Learn", "Docker"],
-    github: "" // TODO: replace with real URL
-  },
-  {
-    title: "Microsoft Stock Forecasting",
-    category: "Time Series",
-    problem: "Financial markets are highly volatile, making basic moving averages insufficient for trading strategies.",
-    solution: "Implemented an advanced deep learning model using LSTMs to predict short-term stock price movements.",
-    impact: "Achieved high directional accuracy on historical backtesting for MSFT stock.",
-    tech: ["TensorFlow", "Keras", "Python", "yfinance"],
-    github: "" // TODO: replace with real URL
-  },
-  {
-    title: "ChatGPT Reviews NLP",
-    category: "NLP",
-    problem: "Extracting actionable product feedback from thousands of unstructured user reviews is highly inefficient.",
-    solution: "Created an NLP pipeline utilizing sentiment analysis and topic modeling on ChatGPT app store reviews.",
-    impact: "Identified core user friction points automatically without manual reading.",
-    tech: ["Hugging Face", "NLTK", "Transformers", "Streamlit"],
-    github: "", // TODO: replace with real URL
-    live: ""    // TODO: replace with real URL
+    problem: "Medical laboratory results are fragmented across clinical systems, impeding rapid diagnostic decision-making.",
+    solution: "Built a centralized healthcare intelligence platform using predictive machine learning to aggregate and visualize patient biomarker trajectories.",
+    impact: "Enhanced diagnostic speed and provided early automated alerts for critical abnormal biomarker trends.",
+    tech: ["FastAPI", "React", "Scikit-Learn", "Docker", "Python"],
+    github: "https://github.com/Oumaima-Toufali/LabLens"
   },
   {
     title: "Federated Learning for Kidney Failure Detection",
     category: "Privacy-Preserving AI",
-    problem: "Hospitals cannot easily share patient data to train better diagnostic models due to strict privacy regulations.",
-    solution: "Developed a simulated federated learning distributed system where models train locally on hospital nodes.",
-    impact: "Maintained data privacy while improving the global model's accuracy in detecting early-stage kidney failure by 15%.",
+    problem: "Hospitals cannot centralize sensitive patient data for ML training due to strict HIPAA/GDPR health privacy regulations.",
+    solution: "Developed a distributed federated learning system using Flower where models train locally on decentralized clinical nodes.",
+    impact: "Preserved full patient data privacy while boosting the global diagnostic model's accuracy in detecting early-stage kidney failure by 15%.",
     tech: ["PyTorch", "Federated Learning", "Flower", "Python"],
-    github: "" // TODO: replace with real URL
+    github: "https://github.com/Oumaima-Toufali/Federated-Learning-Kidney-Diagnosis"
   },
   {
-    title: "Smart Public Lighting System",
-    category: "IoT / AI",
-    problem: "Public street lighting wastes massive amounts of energy by running at full capacity even when streets are empty.",
-    solution: "Designed an AI-driven control system that adjusts lighting intensity based on real-time traffic and pedestrian detection.",
-    impact: "Simulated a potential 40% reduction in energy consumption for municipal lighting grids.",
-    tech: ["Computer Vision", "OpenCV", "IoT", "C++"],
-    github: "" // TODO: replace with real URL
+    title: "AI Data Analyst Agent",
+    category: "LLM / Autonomous Agents",
+    problem: "Traditional analytics require continuous manual SQL querying and data wrangling, creating bottlenecks for decision-makers.",
+    solution: "Developed an autonomous AI agent capable of translating complex natural language prompts into executable SQL and Python pandas code.",
+    impact: "Automated recurring data reporting, enabling non-technical stakeholders to extract direct insights instantly.",
+    tech: ["LangChain", "OpenAI", "Python", "Pandas"],
+    github: "https://github.com/Oumaima-Toufali/AI-Data-Analyst-Agent"
   },
   {
-    title: "Weather Forecasting with Real-Time Streaming",
-    category: "Data Engineering",
-    problem: "Static daily weather models do not account for sudden micro-climate shifts.",
-    solution: "Built an end-to-end data pipeline to ingest, process, and predict weather conditions using real-time sensor streams.",
-    impact: "Enabled high-frequency, localized weather alerting with minimal latency.",
-    tech: ["Apache Kafka", "Spark Streaming", "Python", "AWS"],
-    github: "" // TODO: replace with real URL
+    title: "Microsoft Stock Price Forecasting",
+    category: "Time Series & Deep Learning",
+    problem: "Financial asset markets display heavy noise and volatility, rendering traditional moving averages ineffective for trend forecasting.",
+    solution: "Implemented deep learning LSTM architectures alongside ARIMA models to model temporal dependencies in MSFT stock pricing.",
+    impact: "Achieved high directional precision on historical backtesting datasets for financial price movement prediction.",
+    tech: ["TensorFlow", "Keras", "Python", "yfinance", "ARIMA"],
+    github: "https://github.com/Oumaima-Toufali/msft_forecasting_Arima-DL_models"
   }
 ];
 
@@ -101,7 +90,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={cn(
                  "glass p-8 rounded-3xl group transition-all duration-300 hover:border-primary/40 relative overflow-hidden flex flex-col h-full",
-                 index === 0 || index === 3 ? "md:col-span-2 lg:col-span-2" : "" 
+                 index === 0 || index === 1 ? "md:col-span-2 lg:col-span-2" : "" 
               )}
             >
               {/* Subtle hover background glow */}
@@ -113,7 +102,18 @@ export default function Projects() {
                     {project.category}
                   </span>
                   <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
-                    {project.title}
+                    {project.github ? (
+                      <Link 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:underline flex items-center gap-2"
+                      >
+                        {project.title}
+                      </Link>
+                    ) : (
+                      project.title
+                    )}
                   </h3>
                 </div>
                 <div className="flex gap-3">
@@ -122,21 +122,10 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted hover:text-white transition-colors"
-                      aria-label="GitHub Repository"
+                      className="text-muted hover:text-white transition-colors p-1"
+                      aria-label={`GitHub Repository for ${project.title}`}
                     >
                       <FaGithub className="w-5 h-5" />
-                    </Link>
-                  )}
-                  {"live" in project && project.live && (
-                    <Link
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted hover:text-white transition-colors"
-                      aria-label="Live Demo"
-                    >
-                      <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Link>
                   )}
                 </div>

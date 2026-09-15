@@ -1,12 +1,58 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Send } from "lucide-react";
+import { Mail, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus("error");
+      setErrorMessage("Please fill in all fields before sending.");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+        setErrorMessage(result.message || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section id="contact" className="py-32 relative z-10 overflow-hidden">
       {/* Background glow specific to contact section */}
@@ -78,7 +124,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form className="glass p-8 rounded-3xl flex flex-col gap-6 relative overflow-hidden" onSubmit={(e) => e.preventDefault()}>
+            <form className="glass p-8 rounded-3xl flex flex-col gap-6 relative overflow-hidden" onSubmit={handleSubmit}>
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
               
               <div className="relative z-10 flex flex-col gap-2">
@@ -86,7 +132,10 @@ export default function Contact() {
                 <input 
                   type="text" 
                   id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="John Doe"
+                  required
                   className="bg-background/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                 />
               </div>
@@ -96,7 +145,10 @@ export default function Contact() {
                 <input 
                   type="email" 
                   id="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="john@company.com"
+                  required
                   className="bg-background/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                 />
               </div>
@@ -106,17 +158,45 @@ export default function Contact() {
                 <textarea 
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="How can we work together?"
+                  required
                   className="bg-background/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
                 />
               </div>
 
+              {status === "success" && (
+                <div className="relative z-10 flex items-center gap-2 text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl text-sm">
+                  <CheckCircle2 className="w-5 h-5 shrink-0" />
+                  <span>Message sent successfully. I'll get back to you soon.</span>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="relative z-10 flex items-center gap-2 text-rose-400 bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl text-sm">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  <span>{errorMessage || "Something went wrong. Please try again."}</span>
+                </div>
+              )}
+
               <button 
-                type="button"
-                className="relative z-10 mt-2 bg-primary text-background font-semibold py-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
-                onClick={() => alert("Form functionality will require a backend setup (like Resend or Formspree). Connect via email for now!")}
+                type="submit"
+                disabled={status === "submitting"}
+                className={cn(
+                  "relative z-10 mt-2 bg-primary text-background font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)]",
+                  status === "submitting" ? "opacity-75 cursor-not-allowed" : "hover:opacity-90 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                )}
               >
-                Send Message <Send className="w-4 h-4" />
+                {status === "submitting" ? (
+                  <>
+                    Sending... <Loader2 className="w-4 h-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send Message <Send className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

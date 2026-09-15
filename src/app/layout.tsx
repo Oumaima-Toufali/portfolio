@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { getSiteUrl } from "@/lib/utils";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,18 +8,18 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const baseUrl = getSiteUrl();
+
 export const metadata: Metadata = {
   title: "Oumaima Toufali | AI Engineer & Data Scientist",
   description: "Portfolio of Oumaima Toufali, an AI Engineer specializing in LLM-based systems, machine learning models, and scalable AI solutions. Open to full-time opportunities.",
-  // TODO: replace with production domain once live
-  metadataBase: new URL("https://oumaimatoufali.com"),
+  metadataBase: new URL(baseUrl),
   openGraph: {
     title: "Oumaima Toufali | AI Engineer",
     description: "Building production-ready AI systems and scalable data pipelines. Specializing in LLMs, NLP, and Cloud Architecture.",
     siteName: "Oumaima Toufali Hub",
     type: "website",
-    url: "https://oumaimatoufali.com",
-    // TODO: replace with a proper PNG og-image (1200x630) before deploying
+    url: baseUrl,
     images: ["/og-image.svg"],
   },
 };

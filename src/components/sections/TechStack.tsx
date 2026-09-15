@@ -17,6 +17,10 @@ const techCategories = [
     skills: ["LangChain", "OpenAI API", "Hugging Face", "Transformers"],
   },
   {
+    title: "Data Engineering & Streaming",
+    skills: ["Apache Kafka", "Pandas", "PyArrow", "Parquet", "Avro"],
+  },
+  {
     title: "Cloud & DevOps",
     skills: ["AWS", "Docker", "Jenkins", "Git", "CI/CD"],
   },
