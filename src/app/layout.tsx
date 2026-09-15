@@ -10,13 +10,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Oumaima Toufali | AI Engineer & Data Scientist",
   description: "Portfolio of Oumaima Toufali, an AI Engineer specializing in LLM-based systems, machine learning models, and scalable AI solutions. Open to full-time opportunities.",
+  // TODO: replace with production domain once live
+  metadataBase: new URL("https://oumaimatoufali.com"),
   openGraph: {
     title: "Oumaima Toufali | AI Engineer",
     description: "Building production-ready AI systems and scalable data pipelines. Specializing in LLMs, NLP, and Cloud Architecture.",
     siteName: "Oumaima Toufali Hub",
     type: "website",
-    url: "https://oumaimatoufali.com", // update when live
-    images: ["/og-image.png"], // Requires adding an og-image to public
+    url: "https://oumaimatoufali.com",
+    // TODO: replace with a proper PNG og-image (1200x630) before deploying
+    images: ["/og-image.svg"],
   },
 };
 

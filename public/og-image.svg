@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0B0B0B"/>
+
+  <!-- Subtle radial glow -->
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#0B0B0B" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Gold accent line top -->
+  <rect x="0" y="0" width="1200" height="3" fill="#D4AF37" opacity="0.8"/>
+
+  <!-- Gold accent line bottom -->
+  <rect x="0" y="627" width="1200" height="3" fill="#D4AF37" opacity="0.8"/>
+
+  <!-- Main name -->
+  <text
+    x="600"
+    y="280"
+    font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    font-size="72"
+    font-weight="700"
+    fill="#EDEDED"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    letter-spacing="-2"
+  >Oumaima Toufali</text>
+
+  <!-- Gold divider -->
+  <rect x="500" y="320" width="200" height="2" fill="#D4AF37" rx="1"/>
+
+  <!-- Subtitle -->
+  <text
+    x="600"
+    y="380"
+    font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    font-size="32"
+    font-weight="400"
+    fill="#D4AF37"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    letter-spacing="2"
+  >AI Engineer &amp; Data Scientist</text>
+</svg>

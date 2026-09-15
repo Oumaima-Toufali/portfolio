@@ -100,8 +100,11 @@ export default function Navbar() {
 
       {/* Progress Bar */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent origin-left"
-        style={{ scaleX }}
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent origin-left"
+        style={{
+          scaleX,
+          boxShadow: "0 0 6px 1px rgba(212, 175, 55, 0.6)",
+        }}
       />
 
       {/* Mobile Menu */}

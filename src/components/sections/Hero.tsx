@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -104,6 +104,17 @@ export default function Hero() {
             >
               Contact Me <Mail className="ml-2 w-4 h-4" />
             </Link>
+            {/* TODO: add CV PDF to /public/Oumaima_Toufali_CV.pdf */}
+            <a
+              href="/Oumaima_Toufali_CV.pdf"
+              download
+              className={cn(
+                "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary h-12 px-8 w-full sm:w-auto",
+                "glass text-foreground hover:bg-white/10"
+              )}
+            >
+              Download CV <Download className="ml-2 w-4 h-4" />
+            </a>
           </motion.div>
         </div>
 
