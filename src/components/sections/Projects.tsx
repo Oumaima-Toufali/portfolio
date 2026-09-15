@@ -14,8 +14,8 @@ const projects = [
     solution: "Developed an autonomous AI agent capable of translating natural language into SQL/Python to analyze datasets directly.",
     impact: "Automated standard reporting processes, reducing time-to-insight for non-technical users.",
     tech: ["LangChain", "OpenAI", "Python", "Pandas"],
-    github: "#",
-    live: "#"
+    github: "", // TODO: replace with real URL
+    live: ""    // TODO: replace with real URL
   },
   {
     title: "LabLens – Medical Data Intelligence Platform",
@@ -24,7 +24,7 @@ const projects = [
     solution: "Built a centralized intelligence platform leveraging ML to aggregate, predict, and visualize patient lab trends.",
     impact: "Enhanced diagnostic speed and provided predictive alerts for abnormal biomarker trajectories.",
     tech: ["FastAPI", "React", "Scikit-Learn", "Docker"],
-    github: "#"
+    github: "" // TODO: replace with real URL
   },
   {
     title: "Microsoft Stock Forecasting",
@@ -33,7 +33,7 @@ const projects = [
     solution: "Implemented an advanced deep learning model using LSTMs to predict short-term stock price movements.",
     impact: "Achieved high directional accuracy on historical backtesting for MSFT stock.",
     tech: ["TensorFlow", "Keras", "Python", "yfinance"],
-    github: "#"
+    github: "" // TODO: replace with real URL
   },
   {
     title: "ChatGPT Reviews NLP",
@@ -42,8 +42,8 @@ const projects = [
     solution: "Created an NLP pipeline utilizing sentiment analysis and topic modeling on ChatGPT app store reviews.",
     impact: "Identified core user friction points automatically without manual reading.",
     tech: ["Hugging Face", "NLTK", "Transformers", "Streamlit"],
-    github: "#",
-    live: "#"
+    github: "", // TODO: replace with real URL
+    live: ""    // TODO: replace with real URL
   },
   {
     title: "Federated Learning for Kidney Failure Detection",
@@ -52,7 +52,7 @@ const projects = [
     solution: "Developed a simulated federated learning distributed system where models train locally on hospital nodes.",
     impact: "Maintained data privacy while improving the global model's accuracy in detecting early-stage kidney failure by 15%.",
     tech: ["PyTorch", "Federated Learning", "Flower", "Python"],
-    github: "#"
+    github: "" // TODO: replace with real URL
   },
   {
     title: "Smart Public Lighting System",
@@ -61,7 +61,7 @@ const projects = [
     solution: "Designed an AI-driven control system that adjusts lighting intensity based on real-time traffic and pedestrian detection.",
     impact: "Simulated a potential 40% reduction in energy consumption for municipal lighting grids.",
     tech: ["Computer Vision", "OpenCV", "IoT", "C++"],
-    github: "#"
+    github: "" // TODO: replace with real URL
   },
   {
     title: "Weather Forecasting with Real-Time Streaming",
@@ -70,7 +70,7 @@ const projects = [
     solution: "Built an end-to-end data pipeline to ingest, process, and predict weather conditions using real-time sensor streams.",
     impact: "Enabled high-frequency, localized weather alerting with minimal latency.",
     tech: ["Apache Kafka", "Spark Streaming", "Python", "AWS"],
-    github: "#"
+    github: "" // TODO: replace with real URL
   }
 ];
 
@@ -118,12 +118,24 @@ export default function Projects() {
                 </div>
                 <div className="flex gap-3">
                   {project.github && (
-                    <Link href={project.github} className="text-muted hover:text-white transition-colors" aria-label="GitHub Repository">
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted hover:text-white transition-colors"
+                      aria-label="GitHub Repository"
+                    >
                       <FaGithub className="w-5 h-5" />
                     </Link>
                   )}
-                  {project.live && (
-                    <Link href={project.live} className="text-muted hover:text-white transition-colors" aria-label="Live Demo">
+                  {"live" in project && project.live && (
+                    <Link
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted hover:text-white transition-colors"
+                      aria-label="Live Demo"
+                    >
                       <ArrowUpRight className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </Link>
                   )}

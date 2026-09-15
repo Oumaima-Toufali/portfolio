@@ -7,7 +7,7 @@ const experiences = [
   {
     title: "AI Engineer Intern",
     company: "Nexaya",
-    date: "Recent",
+    date: "Jan 2024 – Present", // TODO: confirm dates
     icon: <Briefcase className="w-5 h-5 text-primary" />,
     description: [
       "Building an AI-powered Technology Assessment Platform.",
@@ -19,7 +19,7 @@ const experiences = [
   {
     title: "Data Science Intern",
     company: "Faculty of Sciences",
-    date: "Previous",
+    date: "Jun 2023 – Dec 2023", // TODO: confirm dates
     icon: <GraduationCap className="w-5 h-5 text-primary" />,
     description: [
       "Applied machine learning and advanced data analysis techniques.",
