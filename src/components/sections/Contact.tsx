@@ -20,6 +20,13 @@ export default function Contact() {
       return;
     }
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    if (!accessKey) {
+      setStatus("error");
+      setErrorMessage("Contact form is not configured. Please reach out via email directly.");
+      return;
+    }
+
     setStatus("submitting");
     setErrorMessage("");
 
@@ -31,7 +38,7 @@ export default function Contact() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -49,7 +56,7 @@ export default function Contact() {
       }
     } catch {
       setStatus("error");
-      setErrorMessage("Something went wrong. Please try again.");
+      setErrorMessage("Network error. Please check your connection and try again.");
     }
   };
 
