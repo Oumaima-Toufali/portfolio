@@ -27,8 +27,8 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-lg text-muted mb-6 leading-relaxed">
-              I am an engineering student specializing in <strong className="text-foreground">Data Science & Cloud Computing</strong>. 
-              My passion lies in bridging the gap between theoretical data models and production-ready applications.
+              I am a <strong className="text-foreground">Data Science & AI Engineer</strong> specializing in building intelligent, production-ready systems.
+              My passion lies in bridging the gap between cutting-edge research and scalable real-world applications.
             </p>
             <p className="text-lg text-muted leading-relaxed">
               With a strong foundation in <strong className="text-foreground">Machine Learning, Deep Learning, and LLMs</strong>, I architect scalable AI systems that solve real-world problems. Whether it's crafting intelligent agents, optimizing data pipelines, or orchestrating deployments via MLOps, I focus on delivering end-to-end intelligent solutions.
