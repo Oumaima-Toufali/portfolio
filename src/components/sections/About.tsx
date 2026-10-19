@@ -36,11 +36,11 @@ export default function About() {
           </motion.div>
 
           <motion.div
-             initial={{ opacity: 0, x: 20 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.5, delay: 0.4 }}
-             className="grid grid-cols-2 gap-4"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="grid grid-cols-2 gap-4"
           >
             {[
               { icon: Brain, title: "AI & ML", desc: "Predictive modeling & DL" },
